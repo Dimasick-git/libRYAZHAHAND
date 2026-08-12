@@ -102,7 +102,7 @@ namespace ult {
 
         // Audio читает WAV'ы из ".loaded_sounds/" -- сюда оверлей
         // распаковывает выбранный ZIP-пак из видимой /config/ryazhahand/sounds/.
-        // Шарится между всеми оверлеями на libryazhahand через одну папку.
+        // Шарится между всеми оверлеями на librazhahand через одну папку.
         // Раньше пути указывали на /config/ultrahand/sounds/ что конфликтовало
         // с ProjectName=ryazhahand и приводило к "тихим" sound_effects.
         inline static constexpr const char* m_soundPaths[static_cast<size_t>(SoundType::Count)] = {

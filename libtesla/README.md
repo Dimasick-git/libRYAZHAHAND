@@ -1,32 +1,25 @@
 # libtesla
 
-<p align="center">
- <img src="https://i.imgur.com/fhwyjbd.png">
-</p>
+**libtesla** is the core UI framework for Nintendo Switch overlays. It handles layer creation, drawing, and input management, ensuring a consistent look and feel across all homebrew overlays. This version is a customized fork included in **Librazhahand**.
 
-libtesla is the interface between the Tesla overlay loader and user-made Overlays. It handles all layer creation, UI creation, drawing and input management.
-It's main goal is to make sure all overlays look and feel similar and don't differenciate themselves from the switch's native overlays.
+---
 
-## Screenshots
+## Описание
 
-<div>
- <img src="https://i.imgur.com/jJpxYjb.jpg" style="width: 50%; float: center">
- <img src="https://i.imgur.com/nBUc7ps.jpg" style="width: 50%; float: right">
-</div>
+**libtesla** — это графический фреймворк для создания оверлеев на Nintendo Switch. Он обеспечивает взаимодействие между загрузчиком Tesla и пользовательским кодом, управляя отрисовкой интерфейса и обработкой ввода.
 
-`Overlays do NOT show up on Screenshots. These pictures were taken using a capture card`
+### Особенности
 
-## Example
+*   **Единообразие:** Гарантирует, что все оверлеи выглядят и ведут себя как нативные элементы системы.
+*   **Управление слоями:** Автоматически обрабатывает отображение и скрытие оверлеев.
+*   **Ввод:** Включает встроенную поддержку сенсорного экрана и физических кнопок.
+*   **Кастомизация:** В этой версии добавлены специфические элементы для Librazhahand, такие как улучшенные списки и ползунки.
 
-An example for how to use libtesla can be found here: https://github.com/WerWolv/libtesla/tree/master/example
-To create your own Overlay, please consider creating a new repository using the official Tesla overlay template: https://github.com/WerWolv/Tesla-Template
+### Использование
 
-**Please Note:** While it is possible to create overlays without libtesla, it's highly recommended to not do so. libtesla handles showing and hiding of overlays, button combo detection, layer creation and a lot more. Not using it will lead to an inconsistent user experience when using multiple different overlays ultimately making it worse for the end user. If something's missing, please consider opening a PR here.
+Библиотека поставляется как часть Librazhahand и подключается автоматически при использовании `ryazhahand.mk`.
 
-## Credits
+### Авторы
 
-- **switchbrew** for nx-hbloader which is used as basis for overlay loading
-- **kardch** for the amazing icon
-- **All the devs on AtlasNX, RetroNX and Switchbrew** for their feedback
-- **All overlay devs** for making something awesome out of this :)
-
+*   **WerWolv**: Оригинальный создатель libtesla.
+*   **Dimasick-git**: Модификации для Librazhahand.

@@ -1,6 +1,6 @@
 /********************************************************************************
  * File: ryz.hpp
- * Author: ppkantorski (libultrahand), Dimasick-git (libryazhahand fork)
+ * Author: ppkantorski (libultrahand), Dimasick-git (librazhahand fork)
  * Description:
  *   'ryz.hpp' serves as a central include header for the Ryzhand Overlay project,
  *   bringing together a comprehensive suite of utility functions essential for the

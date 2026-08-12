@@ -1,66 +1,46 @@
-# libryazhahand
+# Librazhahand
 
-**EN:** Tesla overlay library for Nintendo Switch homebrew. Source-compatible fork of [ppkantorski/libultrahand](https://github.com/ppkantorski/libultrahand) with the runtime config namespace changed from `ultrahand` to `ryazhahand` (overlays read themes/sounds/settings from `/config/ryazhahand/` instead of `/config/ultrahand/`). Used by Ryazhahand-Overlay and RCU. License: GPL-2.0.
+**Librazhahand** is a high-performance Tesla overlay library for Nintendo Switch homebrew. It is a source-compatible fork of [libultrahand](https://github.com/ppkantorski/libultrahand) with a customized runtime configuration namespace (`/config/ryazhahand/`). Key features include PNG wallpaper support via libpng, an optimized audio pipeline with silent buffer priming to eliminate input lag, and enhanced UI primitives.
 
 ---
 
-## Что это
+## Описание
 
-Tesla/overlay-библиотека для homebrew-оверлеев Nintendo Switch (libnx). Канонический submodule для всех проектов Ryazha-экосистемы:
+**Librazhahand** — это специализированная библиотека для создания оверлеев (Tesla) на Nintendo Switch. Она является форком [libultrahand](https://github.com/ppkantorski/libultrahand) и оптимизирована для использования в экосистеме Ryazhenka.
 
-- [Ryazhahand-Overlay](https://github.com/Dimasick-git/Ryazhahand-Overlay) — главный Tesla-меню.
-- [RCU (ryazha-clk)](https://github.com/Dimasick-git/RCU) — overlay для управления частотами.
-- Любые сторонние оверлеи которые хотят `/config/ryazhahand/` вместо `/config/ultrahand/`.
+### Основные особенности
 
-Source-совместима с upstream libultrahand — большинство Ultrahand-overlay'ев пересобираются под libryazhahand без правок исходников, только пересборка с новым submodule.
+*   **Пространство имен конфигурации:** Все настройки, темы и звуки считываются из директории `/config/ryazhahand/`, что предотвращает конфликты с оригинальным Ultrahand.
+*   **Поддержка PNG:** В отличие от оригинальных оверлеев, использующих сырые `.rgba` файлы, Librazhahand поддерживает загрузку PNG-обоев напрямую через `libpng` (`loadPngToRGBA4444`).
+*   **Оптимизированный звук:** Реализован механизм "прогрева" (priming) аудио-движка при инициализации. Это устраняет задержку (lag) при первом воспроизведении звука, отправляя пустой буфер в DMA-engine заранее.
+*   **Улучшенный UI:** Расширенный набор примитивов `libtesla` (List, ListItem, NamedStepTrackBar) и поддержка иконок уведомлений в формате RGBA8888 (32x32).
+*   **Совместимость:** Библиотека сохраняет исходную совместимость с апстримом libultrahand, что позволяет пересобирать существующие оверлеи с минимальными правками.
 
-## Состав
+### Структура библиотеки
 
-| Каталог | Что внутри |
-|---------|------------|
-| `libryazha/` | C++ utility headers + i18n + config helpers. Фор `ult::` namespace (бинарная совместимость с upstream). |
-| `libtesla/` | UI primitives (List, ListItem, NamedStepTrackBar и т.д.). Форк WerWolv/libtesla с дополнениями. |
+| Директория | Описание |
+| :--- | :--- |
+| `librazha/` | Заголовочные файлы утилит C++, интернационализация (i18n) и помощники конфигурации. |
+| `libtesla/` | Форк `libtesla` от WerWolv с дополнительными UI-элементами и исправлениями. |
 
-Подключение в проектах:
+### Подключение
 
-```cpp
-#include <tesla.hpp>     // UI: tsl::elm::*, tsl::Gui, tsl::changeTo, etc.
-#include <tsl_utils.hpp> // ult:: namespace helpers
-```
+Для использования библиотеки в качестве субмодуля:
 
-## Главные отличия от upstream
-
-- `RYZHAND_*` symbol prefix (вместо `ULTRAHAND_*`).
-- `BASE_CONFIG_PATH = "/config/ryazhahand/"`.
-- PNG-обои через libpng (`loadPngToRGBA4444`) вместо raw `.rgba`.
-- Расширенный аудио-pipeline (prime silent buffer в `Audio::initialize()` против первой-press lag'а).
-- Поддержка `loadRGBA8888toRGBA4444` для notification-иконок (32×32).
-
-## Использование как submodule
-
-```sh
-# В проекте, который зависит от Tesla:
-git submodule add https://github.com/Dimasick-git/libryazhahand.git lib/libryazhahand
+```bash
+git submodule add https://github.com/Dimasick-git/librazhahand.git lib/librazhahand
 git submodule update --init --recursive
-
-# Makefile:
-LIBDIRS += $(CURDIR)/lib/libryazhahand
 ```
 
-## Sync с upstream
+В вашем `Makefile` добавьте путь к библиотеке:
 
-`.upstream-sync` — коммит upstream libultrahand с которым мы синхронизированы. Обновление вручную:
-
-```sh
-# В корне libryazhahand:
-git remote add upstream https://github.com/ppkantorski/libultrahand.git  # один раз
-git fetch upstream
-git merge upstream/main  # резолвим конфликты в global_vars.cpp -- наш ryazhahand namespace
-echo "<new-upstream-sha>" > .upstream-sync
+```makefile
+LIBDIRS += $(CURDIR)/lib/librazhahand
 ```
 
-## Лицензия
+### Лицензия
 
-GPL-2.0. См. `LICENSE`. Upstream lic-история сохранена в `SUB_LICENSE`.
+Проект распространяется под лицензией **GPL-2.0**. Подробности в файле `LICENSE`.
+История лицензий апстрима сохранена в `SUB_LICENSE`.
 
-Авторы: ppkantorski (upstream Ultrahand/libultra), WerWolv (libtesla основа), Dimasick-git (Ryazha-форк).
+**Авторы:** ppkantorski (upstream Ultrahand), WerWolv (libtesla), Dimasick-git (Librazhahand fork).
