@@ -3,7 +3,7 @@
  * Author: ppkantorski
  * Description: 
  *   This header file provides the definitions of global constants and paths used 
- *   throughout the RyazhaHand Overlay project. These constants are essential for 
+ *   throughout the Ryazhahand Overlay project. These constants are essential for 
  *   file management and configuration settings within the application.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository:

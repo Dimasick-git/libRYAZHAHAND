@@ -3,7 +3,7 @@
  * Author: ppkantorski
  * Description: 
  *   This source file provides the definitions of global constants and paths used 
- *   throughout the RyazhaHand Overlay project. These constants are essential for 
+ *   throughout the Ryazhahand Overlay project. These constants are essential for 
  *   file management and configuration settings within the application.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository:
@@ -46,7 +46,7 @@ namespace ult {
 
     // Project names
     CONSTEXPR_STRING std::string RYZHAND_PROJECT_NAME         = "ryazhahand";
-    CONSTEXPR_STRING std::string CAPITAL_RYZHAND_PROJECT_NAME = "RyazhaHand";
+    CONSTEXPR_STRING std::string CAPITAL_RYZHAND_PROJECT_NAME = "Ryazhahand";
     CONSTEXPR_STRING std::string SPLIT_PROJECT_NAME_1           = "Ultra";
     CONSTEXPR_STRING std::string SPLIT_PROJECT_NAME_2           = "hand";
 

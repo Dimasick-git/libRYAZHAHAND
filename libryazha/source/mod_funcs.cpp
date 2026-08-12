@@ -4,7 +4,7 @@
  * Description:
  *   This source file provides the implementations of functions declared in
  *   mod_funcs.hpp. These functions handle the conversion of `.pchtxt` mod files
- *   into `.ips` binary patches used by the RyazhaHand Overlay project. This includes
+ *   into `.ips` binary patches used by the Ryazhahand Overlay project. This includes
  *   parsing, validating, and encoding patch data into the IPS format.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository.

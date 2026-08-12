@@ -1,5 +1,5 @@
 #---------------------------------------------------------------------------------
-# RyazhaHand library configuration
+# Ryazhahand library configuration
 # Auto-detects libryazhahand directory location.
 #
 # Подключается в Makefile оверлея одной строкой:
