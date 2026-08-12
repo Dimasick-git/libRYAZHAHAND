@@ -863,7 +863,10 @@ namespace impl {
         ult::centerWidgetAlignment  = getBool("center_widget_alignment", true);
         ult::extendedWidgetBackdrop = getBool("extended_widget_backdrop");
         ult::useDynamicLogo         = getBool("dynamic_logo",            false);
-        ult::useSwitch2Style        = getBool("switch_2_style",          false);
+        // Switch 2 style is the Ryazha default for every compatible overlay.
+        // An explicit switch_2_style=false in /config/ryazhahand/config.ini
+        // still remains a shared user override across the overlay ecosystem.
+        ult::useSwitch2Style        = getBool("switch_2_style",          true);
         ult::useDynamicTableColors  = getBool("dynamic_tables",          true);
         ult::useSelectionBG         = getBool("selection_bg",            true);
         ult::useSelectionText       = getBool("selection_text");
