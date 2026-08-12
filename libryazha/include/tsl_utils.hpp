@@ -23,7 +23,7 @@
 
 
 #pragma once
-
+#include <switch2_style.hpp>
 #include <stdio.h>
 #include <ryz.hpp>
 #include <switch.h>
@@ -170,7 +170,6 @@ namespace ult {
     extern bool usePageSwap;
     extern std::atomic<bool> noClickableItems;
     
-    extern bool useSwitch2Style;
     extern bool useDynamicLogo;
     extern bool useDynamicTableColors;
     extern bool useSelectionBG;

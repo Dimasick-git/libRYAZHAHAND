@@ -244,7 +244,6 @@ namespace ult {
     bool useAutoNTPSync = true;
     bool useStickNavigation = true;
     bool usePageSwap = false;
-    bool useSwitch2Style = true;
     bool useDynamicLogo = false;
     bool useDynamicTableColors = true;
     bool useSelectionBG = true;
