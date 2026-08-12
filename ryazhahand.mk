@@ -1,9 +1,9 @@
 #---------------------------------------------------------------------------------
 # RyazhaHand library configuration
-# Auto-detects librazhahand directory location.
+# Auto-detects libryazhahand directory location.
 #
 # Подключается в Makefile оверлея одной строкой:
-#   include ${TOPDIR}/lib/librazhahand/ryazhahand.mk
+#   include ${TOPDIR}/lib/libryazhahand/ryazhahand.mk
 #---------------------------------------------------------------------------------
 
 TOPDIR ?= $(CURDIR)
@@ -19,10 +19,10 @@ endif
 
 SOURCES += \
   $(RYZ_DIR)/common \
-  $(RYZ_DIR)/librazha/source \
+  $(RYZ_DIR)/libryazha/source \
   $(RYZ_DIR)/libtesla/source
 
 INCLUDES += \
   $(RYZ_DIR)/common \
-  $(RYZ_DIR)/librazha/include \
+  $(RYZ_DIR)/libryazha/include \
   $(RYZ_DIR)/libtesla/include

@@ -1,12 +1,12 @@
-# Librazha
+# Libryazha
 
-**Librazha** is a utility module within [Librazhahand](../README.md) providing C++ headers for Nintendo Switch Tesla overlays. It is source-compatible with `libultra` from the upstream `ppkantorski/libultrahand` but remaps the runtime namespace to `ryazhahand`.
+**Libryazha** is a utility module within [Libryazhahand](../README.md) providing C++ headers for Nintendo Switch Tesla overlays. It is source-compatible with `libultra` from the upstream `ppkantorski/libultrahand` but remaps the runtime namespace to `ryazhahand`.
 
 ---
 
 ## Описание
 
-**Librazha** — это основной утилитарный модуль библиотеки Librazhahand. Он содержит реализации для работы с графикой, звуком и системными функциями Switch.
+**Libryazha** — это основной утилитарный модуль библиотеки Libryazhahand. Он содержит реализации для работы с графикой, звуком и системными функциями Switch.
 
 ### Основные компоненты
 

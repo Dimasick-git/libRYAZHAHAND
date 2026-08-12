@@ -231,7 +231,7 @@ namespace ult {
     bool useSoundEffects = true;
 
     // Per-event sound toggles -- все по умолчанию true, чтобы апгрейд
-    // librazhahand не выключал звуки у тех, у кого они работали.
+    // libryazhahand не выключал звуки у тех, у кого они работали.
     bool useNavigationSound = true;
     bool useEnterSound      = true;
     bool useExitSound       = true;
@@ -786,8 +786,8 @@ namespace ult {
         {&FEATURES,                   "FEATURES",                   "Features"},
         // SWIPE_TO_OPEN/THEME_SETTINGS/DYNAMIC_LOGO/SELECTION_*/PACKAGE_TITLES --
         // записи в upstream-части таблицы выше (v2.4.5), дубли убраны.
-        {&LIBRYZHAND_TITLES,        "LIBRYZHAND_TITLES",        "librazhahand Titles"},
-        {&LIBRYZHAND_VERSIONS,      "LIBRYZHAND_VERSIONS",      "librazhahand Versions"},
+        {&LIBRYZHAND_TITLES,        "LIBRYZHAND_TITLES",        "libryazhahand Titles"},
+        {&LIBRYZHAND_VERSIONS,      "LIBRYZHAND_VERSIONS",      "libryazhahand Versions"},
         // Backports из vendored Ryzhand-Overlay.
         {&TXT_READER,                 "TXT_READER",                 "TXT Reader"},
         {&NO_TXT_FILES_FOUND,         "NO_TXT_FILES_FOUND",         "No TXT files found"},

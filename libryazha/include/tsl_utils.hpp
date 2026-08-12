@@ -493,7 +493,7 @@ namespace ult {
     extern std::string LIBRYZHAND_VERSIONS;
 
     // Backported из vendored Ryzhand-Overlay -- TXT-читалка + UI-настройки
-    // которые добавлялись там и были недоступны в base librazhahand.
+    // которые добавлялись там и были недоступны в base libryazhahand.
     extern std::string TXT_READER;
     extern std::string NO_TXT_FILES_FOUND;
     extern std::string TEXT_COLOR;
