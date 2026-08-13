@@ -4433,52 +4433,6 @@ namespace tsl {
                 setLayerPosImpl(x, y);
             }
 
-        #if IS_STATUS_MONITOR_DIRECTIVE
-            /**
-             * @brief Applies an SMD viewport to the native VI layer and framebuffer.
-             *
-             * Status Monitor modes declare LayerWidth/LayerHeight in framebuffer
-             * pixels. The original renderer only created a fixed 448×720 surface,
-             * so every compact mode inherited a full-height background and could be
-             * clipped or invisible. Recreate the framebuffer before the next frame
-             * while keeping the native layer, fonts and Switch 2 renderer intact.
-             */
-            inline void setStatusMonitorFrameSize(u16 width, u16 height) {
-                width  = std::clamp<u16>(width,  1, static_cast<u16>(cfg::LayerMaxWidth));
-                height = std::clamp<u16>(height, 1, static_cast<u16>(cfg::LayerMaxHeight));
-                if (cfg::FramebufferWidth == width && cfg::FramebufferHeight == height)
-                    return;
-
-                ult::DefaultFramebufferWidth = width;
-                ult::DefaultFramebufferHeight = height;
-                cfg::FramebufferWidth = width;
-                cfg::FramebufferHeight = height;
-                offsetWidthVar = (((cfg::FramebufferWidth / 2) >> 4) << 3);
-                ult::correctFrameSize = (width == 448 && height == 720);
-
-                const float divW = ult::windowedLayerPixelPerfect ? float(cfg::ScreenWidth) : float(cfg::LayerMaxWidth);
-                const float divH = ult::windowedLayerPixelPerfect ? float(cfg::ScreenHeight) : float(cfg::LayerMaxHeight);
-                cfg::LayerWidth = static_cast<u16>(std::max(1.0F, float(cfg::ScreenWidth) * (float(width) / divW)));
-                cfg::LayerHeight = static_cast<u16>(std::max(1.0F, float(cfg::ScreenHeight) * (float(height) / divH)));
-                cfg::LayerPosX = std::min<u16>(cfg::LayerPosX, static_cast<u16>(cfg::ScreenWidth - cfg::LayerWidth));
-                cfg::LayerPosY = std::min<u16>(cfg::LayerPosY, static_cast<u16>(cfg::ScreenHeight - cfg::LayerHeight));
-
-                if (!this->m_initialized)
-                    return;
-
-                framebufferClose(&this->m_framebuffer);
-                nwindowClose(&this->m_window);
-                ASSERT_FATAL(viSetLayerSize(&this->m_layer, cfg::LayerWidth, cfg::LayerHeight));
-                ASSERT_FATAL(viSetLayerPosition(&this->m_layer, cfg::LayerPosX, cfg::LayerPosY));
-                ASSERT_FATAL(nwindowCreateFromLayer(&this->m_window, &this->m_layer));
-                ASSERT_FATAL(framebufferCreate(&this->m_framebuffer, &this->m_window,
-                                               cfg::FramebufferWidth, cfg::FramebufferHeight,
-                                               PIXEL_FORMAT_RGBA_4444, 2));
-                this->m_currentFramebuffer = nullptr;
-                this->m_scissorDepth = 0;
-            }
-        #endif
-
             void updateLayerSize() {
                 const auto [horizontalUnderscanPixels, verticalUnderscanPixels] = getUnderscanPixels();
 
