@@ -2,7 +2,7 @@
  * File: exception_wrap.cpp
  * Author: ppkantorski
  * Description:
- *   Implements linker-wrapped C++ exception and unwind handlers for Ultrahand.
+ *   Implements linker-wrapped C++ exception and unwind handlers for Ryzhand.
  *
  *   This module disables C++ exception propagation by overriding libstdc++
  *   runtime hooks using the GNU linker --wrap mechanism.
@@ -17,7 +17,7 @@
  *
  *   Special thanks to @masagrator.
  *
- *   https://github.com/ppkantorski/Ultrahand-Overlay
+ *   https://github.com/ppkantorski/Ryzhand-Overlay
  *
  *  Licensed under GPLv2 + CC-BY-4.0
  *  Copyright (c) 2026 ppkantorski

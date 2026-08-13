@@ -3,11 +3,11 @@
  * Author: ppkantorski
  * Description:
  *   This header file contains function declarations and utility functions for IPS
- *   binary generations. These functions are used in the Ultrahand Overlay project
+ *   binary generations. These functions are used in the Ryzhand Overlay project
  *   to convert `.pchtxt` mods into `.ips` binaries.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository.
- *   (GitHub Repository: https://github.com/ppkantorski/Ultrahand-Overlay)
+ *   (GitHub Repository: https://github.com/ppkantorski/Ryzhand-Overlay)
  *
  *   Note: Please be aware that this notice cannot be altered or removed. It is a part
  *   of the project's documentation and must remain intact.

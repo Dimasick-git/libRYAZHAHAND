@@ -2,7 +2,7 @@
  * File: tsl_utils.hpp
  * Author: ppkantorski
  * Description: 
- *   'tsl_utils.hpp' is a central utility header for the Ultrahand Overlay project,
+ *   'tsl_utils.hpp' is a central utility header for the Ryzhand Overlay project,
  *   containing a variety of functions and definitions related to system status,
  *   input handling, and application-specific behavior on the Nintendo Switch.
  *   This header provides essential utilities for interacting with the system,
@@ -12,7 +12,7 @@
  *   robust system interaction capabilities required for custom overlays.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository:
- *   GitHub Repository: https://github.com/ppkantorski/Ultrahand-Overlay
+ *   GitHub Repository: https://github.com/ppkantorski/Ryzhand-Overlay
  *
  *   Note: This notice is integral to the project's documentation and must not be 
  *   altered or removed.
@@ -227,9 +227,9 @@ namespace ult {
     void atomicToggle(std::atomic<bool>& b);
 
     /**
-     * @brief Shutdown modes for the Ultrahand-Overlay project.
+     * @brief Shutdown modes for the Ryzhand-Overlay project.
      *
-     * These macros define the shutdown modes used in the Ultrahand-Overlay project:
+     * These macros define the shutdown modes used in the Ryzhand-Overlay project:
      * - `SpsmShutdownMode_Normal`: Normal shutdown mode.
      * - `SpsmShutdownMode_Reboot`: Reboot mode.
      */
@@ -239,7 +239,7 @@ namespace ult {
     /**
      * @brief Key mapping macros for button keys.
      *
-     * These macros define button keys for the Ultrahand-Overlay project to simplify key mappings.
+     * These macros define button keys for the Ryzhand-Overlay project to simplify key mappings.
      * For example, `KEY_A` represents the `HidNpadButton_A` key.
      */
     #define KEY_A HidNpadButton_A
@@ -278,9 +278,9 @@ namespace ult {
     extern bool updateMenuCombos;
     
     /**
-     * @brief Ultrahand-Overlay Input Macros
+     * @brief Ryzhand-Overlay Input Macros
      *
-     * This block of code defines macros for handling input in the Ultrahand-Overlay project.
+     * This block of code defines macros for handling input in the Ryzhand-Overlay project.
      * These macros simplify the mapping of input events to corresponding button keys and
      * provide aliases for touch and joystick positions.
      *
@@ -290,7 +290,7 @@ namespace ult {
      * - `touchInput`: An alias for `&touchPos`, representing touch input.
      * - `JoystickPosition`: An alias for `HidAnalogStickState`, representing joystick input.
      *
-     * These macros are utilized within the Ultrahand-Overlay project to manage and interpret
+     * These macros are utilized within the Ryzhand-Overlay project to manage and interpret
      * user input, including touch and joystick events.
      */
     #define touchPosition const HidTouchState
@@ -368,8 +368,8 @@ namespace ult {
     extern std::string FAVORITE;
     extern std::string MAIN_SETTINGS;
     extern std::string UI_SETTINGS;
-    extern std::string INPUT;      // libultrahand#16: Input settings category
-    extern std::string HOLD_TIME;  // libultrahand#16: long-press duration label
+    extern std::string INPUT;      // libryazhahand#16: Input settings category
+    extern std::string HOLD_TIME;  // libryazhahand#16: long-press duration label
 
     extern std::string WIDGET;
     extern std::string WIDGET_ITEMS;
@@ -798,7 +798,7 @@ namespace ult {
 
     void initializeThemeVars();
     
-    void initializeUltrahandSettings();
+    void initializeRyzhandSettings();
 
 
 }

@@ -10,7 +10,7 @@
  *   smooth execution and flexible customization of overlays within the project.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository.
- *   (GitHub Repository: https://github.com/ppkantorski/Ultrahand-Overlay)
+ *   (GitHub Repository: https://github.com/ppkantorski/Ryzhand-Overlay)
  *
  *   Note: Please be aware that this notice cannot be altered or removed. It is a part
  *   of the project's documentation and must remain intact.
@@ -793,7 +793,7 @@ namespace impl {
             return (it != section.end() && !it->second.empty()) ? it->second : def;
         };
     
-        // Key combo — ultrahand first, tesla as fallback
+        // Key combo — ryazhahand first, tesla as fallback
         u64 decodedKeys = hlp::comboStringToKeys(getStr(ult::KEY_COMBO_STR.c_str()));
         if (!decodedKeys)
             decodedKeys = hlp::comboStringToKeys(
@@ -1638,7 +1638,7 @@ void NotificationPrompt::drawSlot(gfx::Renderer* renderer, const Slot& slot,
 
             #if IS_LAUNCHER_DIRECTIVE
             if (slot.data.title.find(ult::CAPITAL_RYZHAND_PROJECT_NAME) != std::string::npos)
-                drawUltrahandLine(renderer, slot.data.title, titleTextAreaX, titleY, TITLE_FONT, fadeAlpha, notificationTitleColor);
+                drawRyzhandLine(renderer, slot.data.title, titleTextAreaX, titleY, TITLE_FONT, fadeAlpha, notificationTitleColor);
             else {
             #endif
                 renderer->drawNotificationString(slot.data.title, false,
@@ -1704,8 +1704,8 @@ void NotificationPrompt::drawSlot(gfx::Renderer* renderer, const Slot& slot,
                     const s32 bw = before.empty() ? 0 : renderer->getNotificationTextDimensions(before, false, fontSize).first;
                     const s32 aw = after.empty()  ? 0 : renderer->getNotificationTextDimensions(after,  false, fontSize).first;
                     const s32 hw = renderer->getNotificationTextDimensions(hand,   false, fontSize).first;
-                    const s32 uw = tsl::elm::calculateUltraTextWidth(renderer, fontSize, true);
-                    drawUltrahandLine(renderer, line, alignedX(bw + uw + hw + aw), lineY, fontSize, fadeAlpha);
+                    const s32 uw = tsl::elm::calculateRyzTextWidth(renderer, fontSize, true);
+                    drawRyzhandLine(renderer, line, alignedX(bw + uw + hw + aw), lineY, fontSize, fadeAlpha);
                 } else
                 #endif
                 {
@@ -1728,7 +1728,7 @@ void NotificationPrompt::drawSlot(gfx::Renderer* renderer, const Slot& slot,
 }
 
 #if IS_LAUNCHER_DIRECTIVE
-void NotificationPrompt::drawUltrahandLine(gfx::Renderer* renderer, const std::string& line,
+void NotificationPrompt::drawRyzhandLine(gfx::Renderer* renderer, const std::string& line,
                                             s32 x, s32 y, u32 fontSize, float fadeAlpha,
                                             Color textColor) {
     auto fc = [&](Color c) { return applyAlpha(c, fadeAlpha); };
@@ -1750,7 +1750,7 @@ void NotificationPrompt::drawUltrahandLine(gfx::Renderer* renderer, const std::s
         renderer->drawNotificationString(before, false, curX, y, fontSize, fc(textColor));
         curX += bw;
     }
-    curX = tsl::elm::drawDynamicUltraText(renderer, curX, y, fontSize, fc(logoColor1), true);
+    curX = tsl::elm::drawDynamicRyzText(renderer, curX, y, fontSize, fc(logoColor1), true);
     renderer->drawNotificationString(hand, false, curX, y, fontSize, fc(logoColor2));
     curX += hw;
     if (!after.empty())

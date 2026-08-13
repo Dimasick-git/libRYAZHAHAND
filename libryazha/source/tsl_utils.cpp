@@ -3,13 +3,13 @@
  * Author: ppkantorski
  * Description: 
  *   'tsl_utils.cpp' provides the implementation of various utility functions
- *   defined in 'tsl_utils.hpp' for the Ultrahand Overlay project. This source file
+ *   defined in 'tsl_utils.hpp' for the Ryzhand Overlay project. This source file
  *   includes functionality for system checks, input handling, time-based interpolation,
  *   and other application-specific features essential for operating custom overlays
  *   on the Nintendo Switch.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository:
- *   GitHub Repository: https://github.com/ppkantorski/Ultrahand-Overlay
+ *   GitHub Repository: https://github.com/ppkantorski/Ryzhand-Overlay
  *
  *   Note: This notice is integral to the project's documentation and must not be 
  *   altered or removed.
@@ -428,8 +428,8 @@ namespace ult {
     std::string FAVORITE;
     std::string MAIN_SETTINGS;
     std::string UI_SETTINGS;
-    std::string INPUT;       // libultrahand#16
-    std::string HOLD_TIME;   // libultrahand#16
+    std::string INPUT;       // libryazhahand#16
+    std::string HOLD_TIME;   // libryazhahand#16
     std::string WIDGET;
     std::string WIDGET_ITEMS;
     std::string WIDGET_SETTINGS;
@@ -676,7 +676,7 @@ namespace ult {
         {&FAVORITE,                   "FAVORITE",                   "Favorite"},
         {&MAIN_SETTINGS,              "MAIN_SETTINGS",              "Main Settings"},
         {&UI_SETTINGS,                "UI_SETTINGS",                "UI Settings"},
-        // libultrahand#16 — Input settings for configurable hold duration.
+        // libryazhahand#16 — Input settings for configurable hold duration.
         {&INPUT,                      "INPUT",                      "Input"},
         {&HOLD_TIME,                  "HOLD_TIME",                  "Hold Time"},
         {&WIDGET,                     "WIDGET",                     "Widget"},
@@ -745,7 +745,7 @@ namespace ult {
         {&WALLPAPER_SUPPORT_ENABLED,  "WALLPAPER_SUPPORT_ENABLED",  "Wallpaper support enabled."},
         {&SOUND_SUPPORT_ENABLED,      "SOUND_SUPPORT_ENABLED",      "Sound support enabled."},
         {&EXIT_OVERLAY_SYSTEM,        "EXIT_OVERLAY_SYSTEM",        "Exit Overlay System"},
-        {&RYZHAND_ABOUT,            "RYZHAND_ABOUT",            "Ultrahand Overlay is a customizable overlay ecosystem for overlays, commands, hotkeys, and advanced system interaction."},
+        {&RYZHAND_ABOUT,            "RYZHAND_ABOUT",            "Ryzhand Overlay is a customizable overlay ecosystem for overlays, commands, hotkeys, and advanced system interaction."},
         {&RYZHAND_CREDITS_START,    "RYZHAND_CREDITS_START",    "Special thanks to "},
         {&RYZHAND_CREDITS_END,      "RYZHAND_CREDITS_END",      " and many others. ♥"},
         {&LOCAL_IP,                   "LOCAL_IP",                   "Local IP"},
@@ -801,8 +801,8 @@ namespace ult {
         {&SOUND_EXIT,                 "SOUND_EXIT",                 "Cancel sound"},
         {&SOUND_WALL,                 "SOUND_WALL",                 "Wall sound"},
         {&USERGUIDE_OFFSET,           "USERGUIDE_OFFSET",           "177"},
-        {&RYZHAND_HAS_STARTED,      "RYZHAND_HAS_STARTED",      "Ultrahand has started."},
-        {&RYZHAND_HAS_RESTARTED,    "RYZHAND_HAS_RESTARTED",    "Ultrahand has restarted."},
+        {&RYZHAND_HAS_STARTED,      "RYZHAND_HAS_STARTED",      "Ryzhand has started."},
+        {&RYZHAND_HAS_RESTARTED,    "RYZHAND_HAS_RESTARTED",    "Ryzhand has restarted."},
         {&NEW_UPDATE_IS_AVAILABLE,    "NEW_UPDATE_IS_AVAILABLE",    "New update is available!"},
         {&DELETE_PACKAGE,             "DELETE_PACKAGE",             "Delete Package"},
         {&DELETE_OVERLAY,             "DELETE_OVERLAY",             "Delete Overlay"},
@@ -1386,18 +1386,18 @@ namespace ult {
     #if IS_LAUNCHER_DIRECTIVE
     void reinitializeWidgetVars() {
         // Load INI data once instead of 8 separate file reads
-        auto ultrahandSection = getKeyValuePairsFromSection(RYZHAND_CONFIG_INI_PATH, RYZHAND_PROJECT_NAME);
+        auto ryazhahandSection = getKeyValuePairsFromSection(RYZHAND_CONFIG_INI_PATH, RYZHAND_PROJECT_NAME);
         
-        hideClock             = getBoolFromSection(ultrahandSection, "hide_clock",               false);
-        hideBattery           = getBoolFromSection(ultrahandSection, "hide_battery",             true);
-        hideSOCTemp           = getBoolFromSection(ultrahandSection, "hide_soc_temp",            true);
-        hidePCBTemp           = getBoolFromSection(ultrahandSection, "hide_pcb_temp",            true);
-        dynamicWidgetColors   = getBoolFromSection(ultrahandSection, "dynamic_widget_colors",    true);
-        dynamicWidgetBorder   = getBoolFromSection(ultrahandSection, "dynamic_widget_border",    true);
-        hideWidgetBackdrop    = getBoolFromSection(ultrahandSection, "hide_widget_backdrop",     false);
-        hideWidgetBorder      = getBoolFromSection(ultrahandSection, "hide_widget_border",       false);
-        centerWidgetAlignment = getBoolFromSection(ultrahandSection, "center_widget_alignment",  true);
-        extendedWidgetBackdrop= getBoolFromSection(ultrahandSection, "extended_widget_backdrop", false);
+        hideClock             = getBoolFromSection(ryazhahandSection, "hide_clock",               false);
+        hideBattery           = getBoolFromSection(ryazhahandSection, "hide_battery",             true);
+        hideSOCTemp           = getBoolFromSection(ryazhahandSection, "hide_soc_temp",            true);
+        hidePCBTemp           = getBoolFromSection(ryazhahandSection, "hide_pcb_temp",            true);
+        dynamicWidgetColors   = getBoolFromSection(ryazhahandSection, "dynamic_widget_colors",    true);
+        dynamicWidgetBorder   = getBoolFromSection(ryazhahandSection, "dynamic_widget_border",    true);
+        hideWidgetBackdrop    = getBoolFromSection(ryazhahandSection, "hide_widget_backdrop",     false);
+        hideWidgetBorder      = getBoolFromSection(ryazhahandSection, "hide_widget_border",       false);
+        centerWidgetAlignment = getBoolFromSection(ryazhahandSection, "center_widget_alignment",  true);
+        extendedWidgetBackdrop= getBoolFromSection(ryazhahandSection, "extended_widget_backdrop", false);
     }
     #endif
     
@@ -1616,11 +1616,11 @@ namespace ult {
     #if IS_LAUNCHER_DIRECTIVE
     void reinitializeVersionLabels() {
         // Load INI data once instead of 6 separate file reads
-        auto ultrahandSection = getKeyValuePairsFromSection(RYZHAND_CONFIG_INI_PATH, RYZHAND_PROJECT_NAME);
+        auto ryazhahandSection = getKeyValuePairsFromSection(RYZHAND_CONFIG_INI_PATH, RYZHAND_PROJECT_NAME);
         
-        cleanVersionLabels  = getBoolFromSection(ultrahandSection, "clean_version_labels",  false);
-        hideOverlayVersions = getBoolFromSection(ultrahandSection, "hide_overlay_versions", false);
-        hidePackageVersions = getBoolFromSection(ultrahandSection, "hide_package_versions", false);
+        cleanVersionLabels  = getBoolFromSection(ryazhahandSection, "clean_version_labels",  false);
+        hideOverlayVersions = getBoolFromSection(ryazhahandSection, "hide_overlay_versions", false);
+        hidePackageVersions = getBoolFromSection(ryazhahandSection, "hide_package_versions", false);
     }
     #endif
     

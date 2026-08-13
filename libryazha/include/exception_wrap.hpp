@@ -3,7 +3,7 @@
  * Author: ppkantorski
  * Description:
  *   This header defines linker-level exception interception hooks used in the
- *   Ultrahand Overlay project.
+ *   Ryzhand Overlay project.
  *
  *   It declares __wrap_* functions used by the GNU linker --wrap mechanism to
  *   override libstdc++ exception and unwind entry points.
@@ -18,7 +18,7 @@
  *
  *   Special thanks to @masagrator.
  *
- *   https://github.com/ppkantorski/Ultrahand-Overlay
+ *   https://github.com/ppkantorski/Ryzhand-Overlay
  *
  *  Licensed under GPLv2 + CC-BY-4.0
  *  Copyright (c) 2026 ppkantorski

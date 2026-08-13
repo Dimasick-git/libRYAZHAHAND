@@ -7,7 +7,7 @@
  *   file management and configuration settings within the application.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository:
- *   GitHub Repository: https://github.com/ppkantorski/Ultrahand-Overlay
+ *   GitHub Repository: https://github.com/ppkantorski/Ryzhand-Overlay
  *
  *   Note: This notice is integral to the project's documentation and must not be 
  *   altered or removed.
@@ -22,7 +22,7 @@ namespace ult {
 
     // Base paths
     const std::string ROOT_PATH          = "sdmc:/";
-    const std::string BASE_CONFIG_PATH   = ROOT_PATH + "config/ultrahand/";
+    const std::string BASE_CONFIG_PATH   = ROOT_PATH + "config/ryazhahand/";
     const std::string TESLA_CONFIG_PATH  = ROOT_PATH + "config/tesla/";
     const std::string SWITCH_PATH        = ROOT_PATH + "switch/";
 
@@ -47,7 +47,7 @@ namespace ult {
     // Project names
     CONSTEXPR_STRING std::string RYZHAND_PROJECT_NAME         = "ryazhahand";
     CONSTEXPR_STRING std::string CAPITAL_RYZHAND_PROJECT_NAME = "Ryazhahand";
-    CONSTEXPR_STRING std::string SPLIT_PROJECT_NAME_1           = "Ultra";
+    CONSTEXPR_STRING std::string SPLIT_PROJECT_NAME_1           = "Ryz";
     CONSTEXPR_STRING std::string SPLIT_PROJECT_NAME_2           = "hand";
 
     // Paths
@@ -67,7 +67,7 @@ namespace ult {
     const std::string NOTIFICATIONS_ICONS_PATH    = ASSETS_PATH + "notifications/";
     const std::string NOTIFICATIONS_FLAGS_PATH    = FLAGS_PATH + "notifications/";
     const std::string PAYLOADS_PATH               = BASE_CONFIG_PATH + "payloads/";
-    const std::string HB_APPSTORE_JSON            = SWITCH_PATH + "appstore/.get/packages/UltrahandOverlay/info.json";
+    const std::string HB_APPSTORE_JSON            = SWITCH_PATH + "appstore/.get/packages/RyzhandOverlay/info.json";
     std::string THEME_CONFIG_INI_PATH             = BASE_CONFIG_PATH + THEME_FILENAME;
     std::string WALLPAPER_PATH                    = BASE_CONFIG_PATH + WALLPAPER_FILENAME;
     const std::string DOWNLOADS_PATH              = BASE_CONFIG_PATH + "downloads/";
@@ -88,13 +88,13 @@ namespace ult {
     };
 
     // GitHub URLs
-    const std::string GITHUB_BASE_URL               = "https://github.com/ppkantorski/";
-    const std::string GITHUB_RAW_BASE_URL           = "https://raw.githubusercontent.com/ppkantorski/";
-    const std::string RYZHAND_REPO_URL            = GITHUB_BASE_URL + "Ultrahand-Overlay/";
-    const std::string INCLUDED_THEME_FOLDER_URL     = GITHUB_RAW_BASE_URL + "Ultrahand-Overlay/main/themes/";
-    const std::string LATEST_RELEASE_INFO_URL       = GITHUB_RAW_BASE_URL + "Ultrahand-Overlay/main/RELEASE.ini";
+    const std::string GITHUB_BASE_URL               = "https://github.com/Dimasick-git/";
+    const std::string GITHUB_RAW_BASE_URL           = "https://raw.githubusercontent.com/Dimasick-git/";
+    const std::string RYZHAND_REPO_URL              = GITHUB_BASE_URL + "Ryazhahand-Overlay/";
+    const std::string INCLUDED_THEME_FOLDER_URL     = GITHUB_RAW_BASE_URL + "Ryazhahand-Overlay/main/config/ryazhahand/themes/";
+    const std::string LATEST_RELEASE_INFO_URL       = GITHUB_RAW_BASE_URL + "Ryazhahand-Overlay/main/RELEASE.ini";
     const std::string LATEST_UPDATER_INI_URL        = RYZHAND_REPO_URL + "releases/latest/download/update.ini";
-    const std::string UPDATER_PAYLOAD_URL           = GITHUB_RAW_BASE_URL + "Ultrahand-Overlay/main/payloads/ultrahand_updater.bin";
+    const std::string UPDATER_PAYLOAD_URL           = GITHUB_RAW_BASE_URL + "Ryazhahand-Overlay/main/payloads/ryzhand_updater.bin";
 
     // Launch options
     const std::string LAUNCH_ARGS_STR       = "launch_args";

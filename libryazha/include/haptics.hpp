@@ -3,12 +3,12 @@
  * Author: ppkantorski
  * Description:
  *   This header declares functions for managing haptic feedback in the
- *   Ultrahand Overlay. It provides interfaces for initializing vibration
+ *   Ryzhand Overlay. It provides interfaces for initializing vibration
  *   devices and triggering blocking rumble patterns used by the dedicated
  *   haptics thread.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository.
- *   (GitHub Repository: https://github.com/ppkantorski/Ultrahand-Overlay)
+ *   (GitHub Repository: https://github.com/ppkantorski/Ryzhand-Overlay)
  *
  *   Note: Please be aware that this notice cannot be altered or removed. It is a part
  *   of the project's documentation and must remain intact.

@@ -3,12 +3,12 @@
  * Author: ppkantorski
  * Description:
  *   This header defines the Audio class and related structures used for
- *   handling sound playback within the Ultrahand Overlay. It provides interfaces
+ *   handling sound playback within the Ryzhand Overlay. It provides interfaces
  *   for loading, caching, and playing WAV audio through libnx's audout service,
  *   along with basic sound type management and synchronization support.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository.
- *   (GitHub Repository: https://github.com/ppkantorski/Ultrahand-Overlay)
+ *   (GitHub Repository: https://github.com/ppkantorski/Ryzhand-Overlay)
  *
  *   Note: Please be aware that this notice cannot be altered or removed. It is a part
  *   of the project's documentation and must remain intact.
@@ -103,7 +103,7 @@ namespace ult {
         // Audio читает WAV'ы из ".loaded_sounds/" -- сюда оверлей
         // распаковывает выбранный ZIP-пак из видимой /config/ryazhahand/sounds/.
         // Шарится между всеми оверлеями на libryazhahand через одну папку.
-        // Раньше пути указывали на /config/ultrahand/sounds/ что конфликтовало
+        // Раньше пути указывали на /config/ryazhahand/sounds/ что конфликтовало
         // с ProjectName=ryazhahand и приводило к "тихим" sound_effects.
         inline static constexpr const char* m_soundPaths[static_cast<size_t>(SoundType::Count)] = {
             "sdmc:/config/ryazhahand/.loaded_sounds/tick.wav",

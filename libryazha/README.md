@@ -1,6 +1,6 @@
 # Libryazha
 
-**Libryazha** is a utility module within [Libryazhahand](../README.md) providing C++ headers for Nintendo Switch Tesla overlays. It is source-compatible with `libultra` from the upstream `ppkantorski/libultrahand` but remaps the runtime namespace to `ryazhahand`.
+**Libryazha** is a utility module within [Libryazhahand](../README.md) providing C++ headers for Nintendo Switch Tesla overlays. It is source-compatible with `libultra` from the upstream `ppkantorski/libryazhahand` but remaps the runtime namespace to `ryazhahand`.
 
 ---
 
@@ -21,8 +21,8 @@
 #include <tsl_utils.hpp>   // Помощники ult:: (PNG, аудио, пути, i18n)
 ```
 
-Пространство имен `ult::` сохранено для обеспечения совместимости с существующими оверлеями, использующими libultrahand.
+Пространство имен `ult::` сохранено для обеспечения совместимости с существующими оверлеями, использующими libryazhahand.
 
 ### Лицензия
 
-Распространяется под лицензией **GPL-2.0**. Унаследовано от libultrahand.
+Распространяется под лицензией **GPL-2.0**. Унаследовано от libryazhahand.

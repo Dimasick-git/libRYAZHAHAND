@@ -4,13 +4,13 @@
  * File: tesla.hpp
  * Author: ppkantorski
  * Description: 
- *   This file serves as the core logic for the Ultrahand Overlay project's custom fork
+ *   This file serves as the core logic for the Ryzhand Overlay project's custom fork
  *   of libtesla, an overlay executor. Within this file, you will find a collection of
  *   functions, menu structures, and interaction logic designed to facilitate the
  *   smooth execution and flexible customization of overlays within the project.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository.
- *   (GitHub Repository: https://github.com/ppkantorski/Ultrahand-Overlay)
+ *   (GitHub Repository: https://github.com/ppkantorski/Ryzhand-Overlay)
  *
  *   Note: Please be aware that this notice cannot be altered or removed. It is a part
  *   of the project's documentation and must remain intact.
@@ -215,7 +215,7 @@ inline std::atomic<bool> launchComboHasTriggered{false};
 // other consumer.
 inline std::atomic<bool> comboReturnToSelfMenu{false};
 // Set by fireLaunch() so exitServices() runs the exit package even when
-// exitingUltrahand was never set (e.g. quick-combo or return-to-ovlmenu).
+// exitingRyzhand was never set (e.g. quick-combo or return-to-ovlmenu).
 inline std::atomic<bool> pendingExitPackage{false};
 
 
@@ -438,7 +438,7 @@ namespace tsl {
         return Color(15, 15 - 15 * f, 0, 0xF);
     }
 
-    // Ultra-fast version - single variable, minimal branching
+    // Ryz-fast version - single variable, minimal branching
     inline Color RGB888(const std::string& hexColor, size_t alpha = 15, const std::string& defaultHexColor = ult::whiteColor) {
         const char* h = hexColor.size() == 6 ? hexColor.data() :
                         hexColor.size() == 7 && hexColor[0] == '#' ? hexColor.data() + 1 :
@@ -1170,7 +1170,7 @@ namespace tsl {
          * @brief Fast check: is the system currently in shallow sleep?
          *
          * Wraps the global ::systemSleeping atomic, which is maintained by
-         * libultrahand's backgroundEventPoller via PSC (Power State
+         * libryazhahand's backgroundEventPoller via PSC (Power State
          * Coordinator) notifications.  Suitable for the hot path of any
          * background thread — single relaxed-acquire atomic load.
          *
@@ -6312,8 +6312,8 @@ namespace tsl {
 
 
         //#if IS_LAUNCHER_DIRECTIVE
-        // Simple utility function to draw the dynamic "Ultra" part of the logo
-        static s32 drawDynamicUltraText(gfx::Renderer* renderer, s32 startX, s32 y, u32 fontSize, 
+        // Simple utility function to draw the dynamic "Ryz" part of the logo
+        static s32 drawDynamicRyzText(gfx::Renderer* renderer, s32 startX, s32 y, u32 fontSize,
                                        const tsl::Color& staticColor, bool useNotificationMethod = false) {
             static constexpr double cycleDuration = 2.0;
             s32 currentX = startX;
@@ -6361,8 +6361,8 @@ namespace tsl {
             return currentX;
         }
         
-        // Utility function to calculate width of the Ultra text (for notification centering)
-        static s32 calculateUltraTextWidth(gfx::Renderer* renderer, u32 fontSize, bool useNotificationMethod = false) {
+        // Utility function to calculate width of the Ryz text (for notification centering)
+        static s32 calculateRyzTextWidth(gfx::Renderer* renderer, u32 fontSize, bool useNotificationMethod = false) {
             s32 totalWidth = 0;
             
             if (ult::useDynamicLogo) {
@@ -6481,12 +6481,16 @@ namespace tsl {
                 if (m_noClickableItems != ult::noClickableItems.load(std::memory_order_acquire))
                     ult::noClickableItems.store(m_noClickableItems, std::memory_order_release);
             
-                const bool renderIsUltrahandMenu = (m_title == ult::CAPITAL_RYZHAND_PROJECT_NAME && 
-                                                     m_subtitle.find("Ultrahand Package") == std::string::npos && 
-                                                     m_subtitle.find("Ultrahand Script")  == std::string::npos);
+                const bool renderIsRyzhandMenu = (m_title == ult::CAPITAL_RYZHAND_PROJECT_NAME &&
+                                                   m_subtitle.find("Ryzhand Package") == std::string::npos &&
+                                                   m_subtitle.find("Ryzhand Script")  == std::string::npos &&
+                                                   // Старые пакеты остаются распознаваемыми, но новые UI-строки
+                                                   // всегда формируются как Ryzhand.
+                                                   m_subtitle.find("Ryzhand Package") == std::string::npos &&
+                                                   m_subtitle.find("Ryzhand Script")  == std::string::npos);
                 
                 bool widgetDrawn = false;
-                if (renderIsUltrahandMenu) {
+                if (renderIsRyzhandMenu) {
                 #if USING_WIDGET_DIRECTIVE
                     widgetDrawn = renderer->drawWidget();
                 #endif
@@ -6499,7 +6503,7 @@ namespace tsl {
                     }
                     x = 20; fontSize = 42; offset = 6;
                     if (ult::useDynamicLogo) {
-                        x = drawDynamicUltraText(renderer, x, y + offset, fontSize, logoColor1, false);
+                        x = drawDynamicRyzText(renderer, x, y + offset, fontSize, logoColor1, false);
                     } else {
                         for (const char letter : ult::SPLIT_PROJECT_NAME_1) {
                             const std::string letterStr(1, letter);
@@ -6513,14 +6517,20 @@ namespace tsl {
                 #endif
                     x = 20; y = 50; fontSize = 32;
                     calcScrollWidth(renderer, titleScroll, m_title, 32, widgetDrawn);
-                    const bool isScript = m_subtitle.find("Ultrahand Script") != std::string::npos;
+                    const bool isScript = m_subtitle.find("Ryzhand Script") != std::string::npos ||
+                                          m_subtitle.find("Ryzhand Script") != std::string::npos;
                     drawScrollableText(renderer, titleScroll, isScript ? defaultScriptColor : getPackageColor(), x, y, 32, 27, 35);
                 }
                 
                 {
                     std::string subtitle = m_subtitle;
-                    const size_t pos = subtitle.find("?Ultrahand Script");
-                    if (pos != std::string::npos) subtitle.erase(pos, 17);
+                    size_t pos = subtitle.find("?Ryzhand Script");
+                    size_t markerLength = 15;
+                    if (pos == std::string::npos) {
+                        pos = subtitle.find("?Ryzhand Script");
+                        markerLength = 17;
+                    }
+                    if (pos != std::string::npos) subtitle.erase(pos, markerLength);
                     calcScrollWidth(renderer, subScroll, subtitle, 15, widgetDrawn);
                     const int subtitleX = 20, subtitleY = y + 25;
                     if (m_title == ult::CAPITAL_RYZHAND_PROJECT_NAME) {
@@ -7272,7 +7282,7 @@ namespace tsl {
         // и блокирует swap'ы). true означает "swap всегда разрешён";
         // в худшем случае swap произойдёт mid-render = 1-кадровый
         // визуальный glitch, не crash. Тот же эффект что у upstream
-        // libultrahand где этого флага вообще нет.
+        // libryazhahand где этого флага вообще нет.
         inline std::mutex s_safeToSwapMutex;
         inline std::atomic<bool> s_safeToSwap{true};
 
@@ -9266,7 +9276,7 @@ namespace tsl {
 
             // Overload of setRadioLabelSelector() for items whose value text
             // collapses to a bare CHECKMARK_SYMBOL when selected, discarding their
-            // footer text entirely (e.g. ultrahand package ;mode=option items,
+            // footer text entirely (e.g. ryazhahand package ;mode=option items,
             // whose footer is instead stashed elsewhere for restoration on
             // deselect). footer is stored independently here and always shown
             // beside the circle in both states; selection is still read straight
@@ -9665,7 +9675,7 @@ namespace tsl {
             // Shared by valueReservedWidth() and drawRadioSelector(): derives the
             // label text to show beside the circle and, via outSelected, whether
             // this item is the selected one. Two cases:
-            //  - m_hasRadioSelectorFooter set (e.g. ultrahand package ;mode=option
+            //  - m_hasRadioSelectorFooter set (e.g. ryazhahand package ;mode=option
             //    items): the label is the independently-stored footer, and
             //    selection is read straight from m_value via exact equality
             //    (m_value collapses to a bare CHECKMARK_SYMBOL when selected).
@@ -13087,7 +13097,7 @@ namespace tsl {
 
         #if IS_LAUNCHER_DIRECTIVE
         [[gnu::noinline]]
-        void drawUltrahandLine(gfx::Renderer* renderer, const std::string& line,
+        void drawRyzhandLine(gfx::Renderer* renderer, const std::string& line,
                                s32 x, s32 y, u32 fontSize, float fadeAlpha,
                                Color textColor = notificationTextColor);
         #endif
@@ -15240,7 +15250,7 @@ namespace tsl {
 
                                 // A launch-combo-driven overlay switch is about to happen (every
                                 // branch below ends in fireLaunch()). This always abandons any
-                                // pending Ultrahand "open" return context — only a plain back-out
+                                // pending Ryzhand "open" return context — only a plain back-out
                                 // (B) from a directly-opened overlay restores it; a combo switch
                                 // is treated like a normal, unrelated overlay launch.
                                 //
@@ -16153,7 +16163,7 @@ namespace tsl {
         }
     
     #if !IS_LAUNCHER_DIRECTIVE
-        // If this overlay was launched via Ultrahand's "open" command while a package
+        // If this overlay was launched via Ryzhand's "open" command while a package
         // return context is pending, ovlmenu.ovl will restore that package and play its
         // own reveal feedback the instant this process exits (see the OPEN_RETURN_CONTEXT_FILEPATH
         // restore path in ovlmenu's loadInitialGui()). Without this, a plain B-exit here
@@ -16204,10 +16214,10 @@ namespace tsl {
          * сон: консоль замирает на кнопке питания, нет даже звука отключения USB. Сначала это
          * вычистили в сисмодуле (гвардия сна удалена полностью), но сон остался сломан — потому
          * что второй PSC-модуль сидел здесь, в оверлее.
-         * Эталонный Horizon-OC использует libultrahand, где PSC не упоминается НИ РАЗУ
+         * Эталонный Horizon-OC использует libryazhahand, где PSC не упоминается НИ РАЗУ
          * (проверено: pscmGetPmModule = 0 во всех копиях tesla.hpp), и сон там не ломался.
          * Приводим поведение к эталону. Следствие: tsl::isSleeping() всегда false — ровно как в
-         * libultrahand, где такого понятия нет вовсе.
+         * libryazhahand, где такого понятия нет вовсе.
          * NB: правка сделана в вендоренной копии; при обновлении libryazhahand её надо перенести. */
         
 
@@ -16235,12 +16245,12 @@ namespace tsl {
                 inOverlay = (it->second != ult::FALSE_STR);
             }
 
-            // A pending Ultrahand "open" return-context file means this boot is specifically
+            // A pending Ryzhand "open" return-context file means this boot is specifically
             // to restore a saved package position after a plain back-out. IN_OVERLAY_STR can't
             // be trusted here: the directly-opened overlay's own boot (ordinary, pre-existing
             // logic, unrelated to this feature) already cleared it to FALSE the moment it
             // started in direct mode, regardless of whether that overlay knows anything about
-            // Ultrahand at all. Our flag file, by contrast, is only ever written/read by
+            // Ryzhand at all. Our flag file, by contrast, is only ever written/read by
             // ovlmenu.ovl itself, so it survives the opened overlay's entire lifetime intact —
             // treat its presence the same as a genuine combo-return for reveal purposes so the
             // restored menu doesn't come back invisible, waiting on a manual re-summon.

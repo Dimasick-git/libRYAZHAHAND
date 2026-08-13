@@ -3,13 +3,13 @@
  * Author: ppkantorski
  * Description:
  *   This source file provides implementations for the functions declared in
- *   haptics.hpp. These functions manage haptic feedback for the Ultrahand Overlay
+ *   haptics.hpp. These functions manage haptic feedback for the Ryzhand Overlay
  *   using libnx's vibration interfaces. The dedicated haptics thread calls the
  *   standalone (blocking) functions directly, so no timer state machine or
  *   atomic flags are needed here.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository.
- *   (GitHub Repository: https://github.com/ppkantorski/Ultrahand-Overlay)
+ *   (GitHub Repository: https://github.com/ppkantorski/Ryzhand-Overlay)
  *
  *   Note: Please be aware that this notice cannot be altered or removed. It is a part
  *   of the project's documentation and must remain intact.

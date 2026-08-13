@@ -1,4 +1,4 @@
-name: Sync from libultrahand upstream
+name: Sync from libryazhahand upstream
 
 on:
   schedule:
@@ -83,7 +83,7 @@ jobs:
           EXISTING=$(gh issue list --state open --search "upstream-sync: конфликт" --json number --jq 'length')
           if [ "$EXISTING" = "0" ]; then
             gh issue create --title "$TITLE" --body \
-              "Автосинк libultrahand упёрся в конфликт в кастомных файлах (tesla.hpp / tsl_utils.*).
+              "Автосинк libryazhahand упёрся в конфликт в кастомных файлах (tesla.hpp / tsl_utils.*).
           Лог: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           Разрулить вручную: \`python3 scripts/sync_from_upstream.py\` локально, поправить, запушить."
           else

@@ -6,10 +6,10 @@
  *   get_funcs.hpp. These functions are responsible for retrieving and handling
  *   data from the file system and JSON files, including parsing overlay module
  *   information, reading file contents, and accessing structured data used
- *   in the Ultrahand Overlay project.
+ *   in the Ryzhand Overlay project.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository.
- *   (GitHub Repository: https://github.com/ppkantorski/Ultrahand-Overlay)
+ *   (GitHub Repository: https://github.com/ppkantorski/Ryzhand-Overlay)
  *
  *   Note: Please be aware that this notice cannot be altered or removed. It is a part
  *   of the project's documentation and must remain intact.

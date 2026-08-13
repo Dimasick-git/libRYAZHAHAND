@@ -7,7 +7,7 @@
  *   file management and configuration settings within the application.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository:
- *   GitHub Repository: https://github.com/ppkantorski/Ultrahand-Overlay
+ *   GitHub Repository: https://github.com/ppkantorski/Ryzhand-Overlay
  *
  *   Note: This notice is integral to the project's documentation and must not be 
  *   altered or removed.

@@ -6,10 +6,10 @@
  *   functions declared in string_funcs.hpp. These utility functions support
  *   operations such as trimming whitespace, removing quotes, normalizing
  *   slashes, and performing other string cleanup tasks used throughout
- *   the Ultrahand Overlay project.
+ *   the Ryzhand Overlay project.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository.
- *   (GitHub Repository: https://github.com/ppkantorski/Ultrahand-Overlay)
+ *   (GitHub Repository: https://github.com/ppkantorski/Ryzhand-Overlay)
  *
  *   Note: Please be aware that this notice cannot be altered or removed. It is a part
  *   of the project's documentation and must remain intact.

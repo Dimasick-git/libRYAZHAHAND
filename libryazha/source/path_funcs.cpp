@@ -4,12 +4,12 @@
  * Description:
  *   This source file implements the functions declared in path_funcs.hpp.
  *   These utility functions are focused on file and directory path manipulation
- *   for the Ultrahand Overlay project. Functionality includes creating directories,
+ *   for the Ryzhand Overlay project. Functionality includes creating directories,
  *   checking existence of files or paths, moving or copying files, and normalizing
  *   file system paths for cross-platform compatibility.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository.
- *   (GitHub Repository: https://github.com/ppkantorski/Ultrahand-Overlay)
+ *   (GitHub Repository: https://github.com/ppkantorski/Ryzhand-Overlay)
  *
  *   Note: Please be aware that this notice cannot be altered or removed. It is a part
  *   of the project's documentation and must remain intact.

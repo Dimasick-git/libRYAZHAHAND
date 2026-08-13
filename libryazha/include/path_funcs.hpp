@@ -4,11 +4,11 @@
  * Description:
  *   This header file contains function declarations and utility functions related
  *   to file and directory path manipulation. These functions are used in the
- *   Ultrahand Overlay project to handle file operations, such as creating
+ *   Ryzhand Overlay project to handle file operations, such as creating
  *   directories, moving files, and more.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository.
- *   (GitHub Repository: https://github.com/ppkantorski/Ultrahand-Overlay)
+ *   (GitHub Repository: https://github.com/ppkantorski/Ryzhand-Overlay)
  *
  *   Note: Please be aware that this notice cannot be altered or removed. It is a part
  *   of the project's documentation and must remain intact.

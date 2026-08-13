@@ -8,7 +8,7 @@
  *   64-bit file support.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository.
- *   (GitHub Repository: https://github.com/ppkantorski/Ultrahand-Overlay)
+ *   (GitHub Repository: https://github.com/ppkantorski/Ryzhand-Overlay)
  *
  *   Note: Please be aware that this notice cannot be altered or removed. It is a part
  *   of the project's documentation and must remain intact.
@@ -549,7 +549,7 @@ static int ZCALLBACK fclose64_file_func_custom(voidpf opaque, voidpf stream) {
 /**
  * @brief Extracts files from a ZIP archive to a specified destination.
  *
- * Ultra-optimized single-pass extraction with smooth byte-based progress reporting
+ * Ryz-optimized single-pass extraction with smooth byte-based progress reporting
  * using miniz with proper 64-bit file support and streaming extraction.
  * Fixed memory leaks with RAII for proper resource cleanup on abort.
  * 

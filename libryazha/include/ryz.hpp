@@ -1,6 +1,6 @@
 /********************************************************************************
  * File: ryz.hpp
- * Author: ppkantorski (libultrahand), Dimasick-git (libryazhahand fork)
+ * Author: ppkantorski (libryazhahand), Dimasick-git (libryazhahand fork)
  * Description:
  *   'ryz.hpp' serves as a central include header for the Ryzhand Overlay project,
  *   bringing together a comprehensive suite of utility functions essential for the
@@ -13,7 +13,7 @@
  *   support complex overlay functionalities and interactions.
  *
  *   For the latest updates and contributions, visit the project's GitHub repository:
- *   GitHub Repository: https://github.com/ppkantorski/Ultrahand-Overlay
+ *   GitHub Repository: https://github.com/ppkantorski/Ryzhand-Overlay
  *
  *   Note: This notice is integral to the project's documentation and must not be 
  *   altered or removed.
@@ -30,7 +30,7 @@
 //#pragma GCC optimize("Os")
 //
 
-// ── Ultra targeted optimizations ─────────────────────────────
+// ── Ryz targeted optimizations ─────────────────────────────
 //#ifdef RYZ_TARGETED_SPEED
 //    #define RYZ_OPT_SPEED_PUSH _Pragma("GCC push_options") _Pragma("GCC optimize(\"O3\")")
 //    #define RYZ_OPT_SPEED_POP  _Pragma("GCC pop_options")
@@ -47,7 +47,7 @@
     #define RYZ_OPT_SIZE_POP
 #endif
 
-// Include all functional headers used in the libUltra library
+// Include all functional headers used in the libRyz library
 RYZ_OPT_SIZE_PUSH
 #include "global_vars.hpp"
 #include "debug_funcs.hpp"
