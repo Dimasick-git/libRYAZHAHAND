@@ -46,7 +46,7 @@ namespace ult {
 
     // Project names
     CONSTEXPR_STRING std::string RYZHAND_PROJECT_NAME         = "ryazhahand";
-    CONSTEXPR_STRING std::string CAPITAL_RYZHAND_PROJECT_NAME = "Ryazhahand";
+    CONSTEXPR_STRING std::string CAPITAL_RYZHAND_PROJECT_NAME = "Ryzhand";
     CONSTEXPR_STRING std::string SPLIT_PROJECT_NAME_1           = "Ryz";
     CONSTEXPR_STRING std::string SPLIT_PROJECT_NAME_2           = "hand";
 
