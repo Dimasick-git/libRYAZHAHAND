@@ -58,8 +58,10 @@ namespace ult {
     const std::string THEMES_PATH                 = BASE_CONFIG_PATH + "themes/";
     const std::string WALLPAPERS_PATH             = BASE_CONFIG_PATH + "wallpapers/";
     const std::string ASSETS_PATH                 = BASE_CONFIG_PATH + "assets/";
-    const std::string SOUNDS_PATH                 = BASE_CONFIG_PATH + ".sounds/";
-    const std::string LOADED_SOUNDS_PATH          = BASE_CONFIG_PATH + "sounds/";
+    // ZIP-паки видны пользователю в sounds/, а активные распакованные WAV
+    // держим отдельно в .loaded_sounds/ — именно оттуда читает Audio.
+    const std::string SOUNDS_PATH                 = BASE_CONFIG_PATH + "sounds/";
+    const std::string LOADED_SOUNDS_PATH          = BASE_CONFIG_PATH + ".loaded_sounds/";
     const std::string FLAGS_PATH                  = BASE_CONFIG_PATH + "flags/";
     const std::string NOTIFICATIONS_PATH          = BASE_CONFIG_PATH + "notifications/";
     const std::string NOTIFICATIONS_ICONS_PATH    = ASSETS_PATH + "notifications/";
