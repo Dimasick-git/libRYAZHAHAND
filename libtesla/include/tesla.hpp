@@ -157,7 +157,13 @@ inline bool deactivateOriginalFooter = false;
 inline bool disableJumpTo = false;
 
 inline std::string lastMode;
-inline std::set<std::string> overlayModes = {"full", "mini", "micro", "fps_graph", "fps_counter", "game_resolutions"};
+// Keep this set in sync with StatusMonitorModeId in Ryazha-Status-Monitor.
+// Mode recognition controls passive input, show/hide behaviour and combo exit.
+inline std::set<std::string> overlayModes = {
+    "full", "mini", "micro",
+    "fps_graph", "fps_counter", "ryazha_status",
+    "battery_charger", "miscellaneous", "game_resolutions"
+};
 
 inline bool isValidOverlayMode() {
     return overlayModes.count(lastMode) > 0;
