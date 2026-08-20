@@ -161,7 +161,7 @@ inline std::string lastMode;
 // Mode recognition controls passive input, show/hide behaviour and combo exit.
 inline std::set<std::string> overlayModes = {
     "full", "mini", "micro",
-    "fps_graph", "fps_counter", "ryazha_status",
+    "fps_graph", "fps_counter", "ryazha_status", "security_spacificate",
     "battery_charger", "miscellaneous", "game_resolutions"
 };
 
